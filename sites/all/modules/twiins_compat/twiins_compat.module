@@ -1,0 +1,110 @@
+<?php
+
+function twiins_compat_form_alter(&$form, &$state, $id) {
+
+
+    if ($form['#id'] == 'views-exposed-form-compatibilidad-page') {
+        //print_r($form['field_marca_tid']['#options']);
+        $form['field_marca_tid']['#options'][1] = t('Can’t see your brand?');
+        $form['field_marca_tid']['#options'][19] = t('-- List of brands --');
+
+        unset($form['field_marca_tid']['#options']['All']);
+        $form['#validate'][] = '_twiins_compat_validator';
+    } elseif ($form['#form_id'] == 'compatibilidad_node_form') {
+
+
+
+        $form['#prefix'] = '<div class="capsalera-add-compaibilidad">
+<h1> 
+<span class="mes-gran">' . t('Find the Twiins') . '</span> ' . t('that best fits your helmet!') . ' </h1></div>';
+
+
+
+        $form['field_modelo']['#states'] = array(
+            'visible' => array(
+                ':input[name="field__sabes_el_moelo_[und]"]' => array('value' => '1'),
+            ),
+            'required' => array(
+                ':input[name="field__sabes_el_moelo_"]' => array('value' => '0'),
+            ),
+        );
+        //unset($form['field_modelo'][LANGUAGE_NONE][0]['value']['#title']);
+
+        $form['info']['#prefix'] = '<div class="info-sugerencia">';
+        $form['info']['#suffix'] = '</div>';
+        $text = t('We are working to have more information on the brand you are looking for 
+<em> Tip: try on some model check Twiins adjusting your helmet </ em>');
+        $form['info']['#markup'] = $text;
+        $form['info']['#weight'] = 100;
+        //   
+        $form['#after_build'][] = 'node_entry_form_after_build';
+
+        $form['actions']['submit']['#submit'][] = 'twiins_compat_form_submit'; // custom callback name
+
+        $form['actions']['submit']['#value'] = t('Send form');
+    }
+}
+
+/*
+  function hook_node_insert($node) {
+  $_GET['destination'] = 'node/' . $node->nid . '/edit';
+  }
+ */
+
+/**
+ * Custom submit handler. Overwrites the form redirection variable.
+ */
+function twiins_compat_form_submit($form, &$form_state) {
+
+    //$form_state['#redirect'] = '<front>';
+
+    drupal_get_messages(NULL, TRUE);
+    drupal_set_message(t("Thank you the information has been sent"));
+    $form_state['redirect'] = '<front>';
+
+    //$_REQUEST['destination'] = '<front>' ;
+    //drupal_goto('<front>');
+}
+
+function node_entry_form_after_build($form, &$form_state) {
+    //drupal_set_title(t('My helmet is not listed'));  
+    drupal_set_title('');
+    return $form;
+}
+
+function twiins_compat_field_widget_form_alter(&$element, &$form_state, $context) {
+    if ($context['field']['type'] == 'list_boolean' && isset($element['#options'])) {
+        $element['#options'] = array_reverse($element['#options'], TRUE);
+    }
+}
+
+function _twiins_compat_validator(&$form, &$form_state) {
+    $path = drupal_get_path_alias('node/add/compatibilidad');
+    if (isset($form_state['input']['field_marca_tid']) && $form_state['input']['field_marca_tid'] == 1)
+        drupal_goto($path);
+}
+
+function twiins_compat_menu() {
+    $items['pcompatibilidad'] = array(
+        'title' => 'page_compatibilidad',
+        'page callback' => 'page_compatibilidad',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+    );
+
+    return $items;
+}
+
+function twiins_compat_views_pre_build($view) {
+    if ($view->name == 'compatibilidad') {
+        //dsm($view->display['page']->handler->handlers['filter']['field_marca_tid']);
+        $view->display['page']->handler->handlers['filter']['field_marca_tid']->value['value'] = 19;
+        return $view;
+    }
+}
+
+function twiins_compat_form_locale_translate_edit_form_alter(&$form, $form_state) {
+  unset($form['#validate']);
+  // could also replace default validation handler function
+  // (locale_translate_edit_form_validate) with a modified version.
+}
