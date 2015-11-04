@@ -372,8 +372,12 @@ ul.menu ul li .view-content .views-row:last-child {
 }
 
 
-#section-content .zone-content {
-    padding-top:13px;
+.front #section-content .zone-content {
+   padding-top:13px;
+}
+.not-front #section-content .zone-content {
+   //padding-top:30px;
+   padding-top:15px;
 }
 
 #section-content .zone {
@@ -1456,13 +1460,13 @@ margin-bottom: 5px;
     .view-compatibilidad .views-row {
         overflow: visible;
     }
-    
+
     #edit-title-field-und-0-value {
         background: #E6E7E8;
         width: 280px;
     }
     #edit-field-modelo-und-0-value{
-         width: 130px;
+        width: 130px;
     }
 
     .block-language {
@@ -1482,9 +1486,9 @@ margin-bottom: 5px;
     height:33px !important;}
 
 img.language-icon:hover {
-zoom:1;
-opacity:0.8;
-filter:alpha(opacity=80)
+    zoom:1;
+    opacity:0.8;
+    filter:alpha(opacity=80)
 }
 
 //ul.language-switcher-locale-url .vi{display:none}
@@ -1495,16 +1499,197 @@ filter:alpha(opacity=80)
     #block-locale-language{
         right: 0px;
         top:-90px;
-}
+    }
 }
 
 @media (max-device-width: 500px), (max-width: 500px){
     #block-locale-language{
-          bottom: initial;
+        bottom: initial;
         top:-175px;
         left:0px;
     }
-    
     .region-branding-inner{margin-top:35px;}
+}
+
+@media (min-device-width: 980px) and (min-width: 980px){
+   #pdf-btn-wrapper {
+        margin-top: 135px; 
+        position: fixed !important;
+    }
+    
+    .container-12 .grid-8.region-branding-menu {
+        width: 680px !important;
+    }
+    
+    .container-12 .grid-4 {
+  /* width: 300px; */
+}
+}
+
+ 
+
+/*
+PDF
+*/
+
+.view-manuales-PDF .views-row, .view-manuales-pdf-product .views-row{
+    float:left;
+    margin: 10px 20px;
+}
+
+.pdf-imatge{
+}
+
+.pdf-overlay{
+    margin-top:-211px;
+    opacity:0;
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    
+}
+
+.pdf-overlay:hover{
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    opacity:1;
+}
+
+/* PDF BUTTON */
+
+#pdf-btn-wrapper{
+    position:absolute;  
+    height: 54px; 
+    right:45px;
+    float:right;
+    margin-right:12px;
+z-index:1000;
+}
+
+
+
+/** VIETNAMITA */
+#block-system-main-menu .views-row-7{display:none}
+
+.i18n-vi #block-system-main-menu .views-row-1{display:none}
+.i18n-vi #block-system-main-menu .views-row-2{display:none}
+.i18n-vi #block-system-main-menu .views-row-3{display:none}
+.i18n-vi #block-system-main-menu .views-row-4{display:none}
+.i18n-vi #block-system-main-menu .views-row-5{display:none}
+.i18n-vi #block-system-main-menu .views-row-6{display:none}
+.i18n-vi #block-system-main-menu .views-row-7{display:block}
+
+
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+/*************************  VIDEO TUTORIALS  ***************************/
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+
+.view-video-tutoriales{
+	background-color: #C7D000;
+	padding: 15px;
+	padding-left: 35px;
+	overflow: hidden;
+	
+}
+
+.block-video-tutoriales-block .block-title{
+	text-align:center;
+	margin-top:35px;
+	font-size:26px;
+	color:black;
+	text-transform: uppercase;
+
+}
+
+.node-type-video-tutorial .field-name-title-field{
+	font-size:18px;
+	color:#666;
+}
+
+.view-video-tutoriales .views-row{
+	float:left;
+	margin-right:23px;
+	margin-bottom:30px
+}
+
+.view-video-tutoriales h3{
+padding-top:30px;	
+	color: black;
+	xmargin-left:-20px;
+	border-bottom:white solid 1px;
+}
+
+
+.view-video-tutoriales h3 a {
+	margin-left:-18px;
+}
+
+.view-video-tutoriales .views-row-4{
+	margin-right:0px
+}
+
+.view-video-tutoriales  h3, .view-video-tutoriales  h3 a{
+	clear:both;
+	color:black;
+	
+}
+
+.player iframe{
+	width:100% !important;
+}
+
+.view-video-tutoriales  .views-field-title-field,
+.view-video-tutoriales  .views-field-title-field a,
+.view-video-tutoriales  .views-field-title,
+.view-video-tutoriales  .views-field-title a{
+	font-size:18px;
+	color:#444;
+}
+
+.field-type-video-embed-field .player {
+	position:relative;
+	//padding-bottom:56.25%;
+	padding-bottom:53.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.field-type-video-embed-field .player iframe, 
+.field-type-video-embed-field .player object, 
+.field-type-video-embed-field .player embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+/** HOVER VIDEO **/
+.views-field-field-video-youtube {
+	background-color:white;
+}
+
+.views-field-field-video-youtube img {
+  //height: 115px;
+  //width: 200px;
+ /**/
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+	
+	
+	background:white;
+}
+ 
+.views-field-field-video-youtube img:hover {
+  	opacity:0.5;
 }
 

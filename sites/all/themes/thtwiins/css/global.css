@@ -317,7 +317,7 @@ ul.menu ul li .view-content .views-row:last-child {
 
 #block-system-main-menu .menu li {
     border: none;
-    margin-left:20px;
+    margin-left:12px;
 }
 
 
@@ -1577,3 +1577,120 @@ z-index:1000;
 .i18n-vi #block-system-main-menu .views-row-5{display:none}
 .i18n-vi #block-system-main-menu .views-row-6{display:none}
 .i18n-vi #block-system-main-menu .views-row-7{display:block}
+
+
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+/*************************  VIDEO TUTORIALS  ***************************/
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+/***********************************************************************/
+
+.view-video-tutoriales{
+	background-color: #C7D000;
+	padding: 15px;
+	padding-left: 35px;
+	overflow: hidden;
+	
+}
+
+.block-video-tutoriales-block .block-title{
+	text-align:center;
+	margin-top:35px;
+	font-size:26px;
+	color:black;
+	text-transform: uppercase;
+
+}
+
+.node-type-video-tutorial .field-name-title-field{
+	font-size:18px;
+	color:#666;
+}
+
+.view-video-tutoriales .views-row{
+	float:left;
+	margin-right:23px;
+	margin-bottom:30px
+}
+
+.view-video-tutoriales h3{
+padding-top:30px;	
+	color: black;
+	xmargin-left:-20px;
+	border-bottom:white solid 1px;
+}
+
+
+.view-video-tutoriales h3 a {
+	margin-left:-18px;
+}
+
+.view-video-tutoriales .views-row-4{
+	margin-right:0px
+}
+
+.view-video-tutoriales  h3, .view-video-tutoriales  h3 a{
+	clear:both;
+	color:black;
+	
+}
+
+.player iframe{
+	width:100% !important;
+}
+
+.view-video-tutoriales  .views-field-title-field,
+.view-video-tutoriales  .views-field-title-field a,
+.view-video-tutoriales  .views-field-title,
+.view-video-tutoriales  .views-field-title a{
+	font-size:18px;
+	color:#444;
+}
+
+.field-type-video-embed-field .player {
+	position:relative;
+	//padding-bottom:56.25%;
+	padding-bottom:53.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.field-type-video-embed-field .player iframe, 
+.field-type-video-embed-field .player object, 
+.field-type-video-embed-field .player embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+/** HOVER VIDEO **/
+.views-field-field-video-youtube {
+	background-color:white;
+	max-width:200px;
+}
+
+.views-field-field-video-youtube img {
+  //height: 115px;
+  //width: 200px;
+ /**/
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+	
+	
+	background:white;
+}
+ 
+.views-field-field-video-youtube img:hover {
+  	opacity:0.5;
+}
+
